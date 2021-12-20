@@ -9,7 +9,18 @@ terraform {
 
 provider "aws" {
   region = var.region
+ default_tags {
+    tags = {
+      Owner              = "Thomas"
+      Se-region          = "us-east-1"
+      Purpose            = "customer-demo"
+      ttl                = "1"
+      terraform          = "true"
+      hc-internet-facing = "false"
+    }
+  }
 }
+
 
 data "aws_availability_zones" "available" {
   filter {
