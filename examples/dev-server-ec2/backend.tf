@@ -3,7 +3,7 @@ terraform {
     organization = "PublicSector-ATARC"
 
     workspaces {
-      name = "fse-tf-atarc-aws-ecs-vpc"
+      name = "terraform-aws-consul-ecs"
     }
   }
 }
