@@ -58,6 +58,7 @@ module "example_client_app" {
       local_bind_port  = 1234
     }
   ]
+  consul_ecs_image  = "docker.mirror.hashicorp.services/hashicorpdev/consul-ecs:latest"
   log_configuration = local.example_client_app_log_config
   container_definitions = [{
     name             = "example-client-app"
@@ -107,6 +108,7 @@ module "example_server_app" {
   source                   = "../../modules/mesh-task"
   family                   = "${var.name}-example-server-app"
   requires_compatibilities = ["EC2"]
+  consul_ecs_image  = "docker.mirror.hashicorp.services/hashicorpdev/consul-ecs:latest"
   memory                   = 256
   port                     = "9090"
   log_configuration        = local.example_server_app_log_config
